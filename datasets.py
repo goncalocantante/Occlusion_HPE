@@ -796,12 +796,13 @@ class new_BIWI(Dataset):
 
         labels = torch.LongTensor(binned_pose)
         cont_labels = torch.FloatTensor([yaw, pitch, roll])
+        #cont_labels_translation = torch.FloatTensor([t1, t2, t3])
         #cont_labels = torch.tensor([yaw, pitch, roll], dtype=torch.float) #VER SE ISTO FUNCIONA
 
         if self.transform is not None:
             img = self.transform(img)
 
-        return img, labels, cont_labels #self.X_train[index]
+        return img, labels, cont_labels #self.X_train[index], cont_labels_translation
 
     def __len__(self):
         # 15,667
